@@ -1,0 +1,3 @@
+question_id,question,intent,notes
+,What are the best tools for <your category>?,discovery,Example row - replace with your own
+,How much does <your brand> cost?,purchase,question_id is optional; ids are generated when blank

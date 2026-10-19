@@ -1,0 +1,16 @@
+{
+  "name": "aeo-geo-visibility-lab",
+  "version": "1.0.0",
+  "description": "Research tool for logging AI-assistant answers to fixed buyer questions and measuring brand mentions and source citations.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test",
+    "start": "python3 -m http.server 8000",
+    "sample-data": "node scripts/generate-sample-data.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

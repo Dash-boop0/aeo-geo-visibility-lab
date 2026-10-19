@@ -1,0 +1,2 @@
+observation_id,date,platform,run,question_id,question,intent,prompt,settings,answer_summary,brands_mentioned,cited_urls,cited_domains,notes
+,2026-01-15,Assistant A,1,q01,What are the best tools for <your category>?,discovery,What are the best tools for <your category>?,default model; new chat; signed out; en-GB,Example only: names Brand One and Brand Two; links two sources,Brand One; Brand Two,https://brandone.example.com/features; https://reviews.example.org/best-tools,,Example row - replace with a real observation you logged

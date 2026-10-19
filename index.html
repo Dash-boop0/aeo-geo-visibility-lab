@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AEO/GEO Visibility Lab</title>
+  <meta name="description" content="Research tool for logging AI-assistant answers to a fixed set of buyer questions and measuring brand mentions and source citations. Runs entirely in the browser.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5BEA'/%3E%3Cpath d='M8 23V14M14 23V9M20 23V17M26 23V12' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-row">
+        <a class="app-name" href="#/overview"><span class="logo" aria-hidden="true"></span>AEO/GEO Visibility Lab</a>
+        <div id="project-picker" class="project-picker"></div>
+      </div>
+      <nav id="tabs" class="tabs" aria-label="Main sections"></nav>
+    </div>
+  </header>
+  <div id="banner" class="banner-wrap"></div>
+  <main id="main" class="container" tabindex="-1">
+    <noscript><p class="notice bad">This app needs JavaScript. It runs entirely in your browser and sends no data anywhere.</p></noscript>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      Portfolio project by <a href="https://dash-boop0.github.io/">Dash-boop0</a> ·
+      <a href="https://github.com/Dash-boop0/aeo-geo-visibility-lab">Source on GitHub</a> ·
+      Sample data is synthetic
+    </div>
+  </footer>
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
