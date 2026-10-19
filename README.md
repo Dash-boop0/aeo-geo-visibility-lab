@@ -69,7 +69,9 @@ There is nothing to install and no build step. GitHub Pages serves the repositor
 
 ## How to use
 
-1. **Load the illustrative sample** to explore, or **create an empty project**.
+1. Your first visit opens the **illustrative sample** project automatically. To use your own data, click
+   **Start with your own data** in the sample banner (this choice is remembered), then **create an empty project**.
+   You can load the sample again at any time; saved data is never overwritten by it.
 2. **Brands & project**: add your brand as *target* and each competitor, with their domains.
 3. **Questions**: add your fixed buyer questions or import `sample-data/questions-template.csv`.
 4. **Observations**: ask each assistant each question (new chat, same wording every round) and log the answer —

@@ -11,24 +11,28 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand-row">
-        <a class="app-name" href="#/overview"><span class="logo" aria-hidden="true"></span>AEO/GEO Visibility Lab</a>
-        <div id="project-picker" class="project-picker"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__top">
+        <a class="site-brand" href="#/overview"><svg class="site-brand__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="7"/><path class="glyph-s" stroke-width="3" d="M8 23V14M14 23V9M20 23V17M26 23V12"/></svg><span class="site-brand__name">AEO/GEO Visibility Lab</span></a>
+        <div id="project-picker" class="site-header__extra"></div>
+        <a class="site-home" href="https://dash-boop0.github.io/"><span aria-hidden="true">←</span> All projects</a>
       </div>
-      <nav id="tabs" class="tabs" aria-label="Main sections"></nav>
+      <nav id="tabs" class="site-tabs" aria-label="Main sections"></nav>
     </div>
   </header>
-  <div id="banner" class="banner-wrap"></div>
-  <main id="main" class="container" tabindex="-1">
+  <div id="banner" class="site-banner"></div>
+  <main id="main" class="site-main" tabindex="-1">
     <noscript><p class="notice bad">This app needs JavaScript. It runs entirely in your browser and sends no data anywhere.</p></noscript>
   </main>
-  <footer class="footer">
-    <div class="container">
-      Portfolio project by <a href="https://dash-boop0.github.io/">Dash-boop0</a> ·
-      <a href="https://github.com/Dash-boop0/aeo-geo-visibility-lab">Source on GitHub</a> ·
-      Sample data is synthetic
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <nav class="site-footer__links" aria-label="Portfolio links">
+        <a href="https://dash-boop0.github.io/"><span aria-hidden="true">←</span> All projects</a>
+        <a href="https://github.com/Dash-boop0/aeo-geo-visibility-lab">Source on GitHub</a>
+        <a href="https://github.com/Dash-boop0/aeo-geo-visibility-lab/blob/main/LICENSE">MIT licence</a>
+      </nav>
+      <p class="site-footer__note">Sample data is synthetic · Your data stays in this browser</p>
     </div>
   </footer>
   <div id="status" class="status" role="status" aria-live="polite"></div>

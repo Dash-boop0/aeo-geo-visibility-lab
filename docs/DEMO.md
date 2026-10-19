@@ -6,7 +6,7 @@ Open the live demo (https://dash-boop0.github.io/aeo-geo-visibility-lab/) or run
 questions, log what they say and cite, and measure brand visibility with sample sizes on every number. The data
 you'll see is a fictional, synthetic sample — the banner says so on every page."
 
-**0:15 — Load the sample (10 s).** Click **Load illustrative sample project**. Point at the orange banner:
+**0:15 — The sample (10 s).** The illustrative sample project opens automatically on first visit (or click **Load illustrative sample project**). Point at the orange banner:
 fictional brands, synthetic observations, not real AI results.
 
 **0:25 — Overview (30 s).**

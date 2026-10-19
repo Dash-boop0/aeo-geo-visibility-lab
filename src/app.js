@@ -1,5 +1,5 @@
 // App shell: state, routing, rendering and event delegation.
-import { loadState, saveState, clearState } from './store.js';
+import { loadState, saveState, clearState, startEmptyChosen, rememberStartEmpty } from './store.js';
 import { buildSampleProject, SAMPLE_PROJECT_ID } from './lib/sample.js';
 import { createEmptyState } from './lib/model.js';
 import { esc } from './ui/util.js';
@@ -30,6 +30,12 @@ const INPUTS = merge('inputs');
 const loaded = loadState();
 let state = loaded.state;
 let storageWarning = loaded.warning;
+// First visit (nothing saved, sample not declined): open the illustrative sample so the dashboard is populated.
+if (!loaded.found && !startEmptyChosen()) {
+  const sample = buildSampleProject();
+  state = { ...state, projects: [...state.projects, sample], activeProjectId: sample.id };
+  if (!storageWarning) saveState(state);
+}
 
 function freshUi() {
   return {
@@ -109,15 +115,16 @@ function renderHeader(current) {
   const p = ctx.project;
   const parts = [];
   if (p?.illustrative) {
-    parts.push('<div class="banner illustrative" role="note"><strong>Illustrative sample data.</strong> Ledgerly and its competitors are fictional, and every observation in this project is synthetic — generated for demonstration. These are <strong>not real AI-assistant results or citations</strong>.</div>');
+    parts.push('<div class="sample-banner" role="note"><p class="sample-banner__text"><strong>Illustrative sample data.</strong> Ledgerly and its competitors are fictional, and every observation in this project is synthetic — generated for demonstration. These are <strong>not real AI-assistant results or citations</strong>.</p><button type="button" class="sample-banner__action" data-action="start-own">Start with your own data</button></div>');
   }
-  if (storageWarning) parts.push(`<div class="banner warn" role="alert">${esc(storageWarning)}</div>`);
+  if (storageWarning) parts.push(`<div class="sample-banner is-error" role="alert"><p class="sample-banner__text">${esc(storageWarning)}</p></div>`);
   banner.innerHTML = parts.join('');
 }
 
 function welcome() {
-  return `<section class="hero card">
-    <h1>AEO/GEO Visibility Research Lab</h1>
+  return `<h1 class="page-title">Get started</h1>
+  <section class="hero card">
+    <h2>AEO/GEO Visibility Research Lab</h2>
     <p>Record how AI assistants answer a fixed set of buyer questions: which brands they mention and which sources they cite.
     Then measure brand mention rate, target-domain citation rate, mention share and citation sources — with sample sizes on every number.</p>
     <p class="muted">Everything stays in your browser. No accounts, no API keys, no scraping.</p>
@@ -167,9 +174,16 @@ ACTIONS['load-sample'] = (el, c) => {
     `Loaded the illustrative sample: ${sample.questions.length} questions, ${sample.observations.length} synthetic observations.`);
   if (route() !== 'overview') location.hash = '#/overview';
 };
+ACTIONS['start-own'] = (el, c) => {
+  rememberStartEmpty();
+  c.commitState((s) => ({ ...s, projects: s.projects.filter((p) => p.id !== SAMPLE_PROJECT_ID) }),
+    'Sample removed. Create a project or restore a backup to start with your own data.');
+  if (route() !== 'overview' && route() !== 'method') location.hash = '#/overview';
+};
 ACTIONS.reset = (el, c) => {
   if (!window.confirm('Delete ALL projects and data stored in this browser? Download a backup first if you need one.')) return;
   clearState();
+  rememberStartEmpty();
   c.commitState(() => createEmptyState(), 'All data deleted.');
 };
 CHANGES['project-picker'] = (el, c) => c.switchProject(el.value);
